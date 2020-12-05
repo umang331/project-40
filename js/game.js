@@ -41,46 +41,35 @@ class Game{
 
                 Player.getPlayerInfo();
                  image(back_img, 0, 0, 1000, 800);
-                 var x = 100;
-                 var y = 200;
+                 var x =100;
+                 var y=200;
                 
                  drawSprites();
                  for(var plr in allPlayers){
-                    
-                    var  index = 0;
+                    var index =0;
                      index = index+1;
                      x = 500-allPlayers[plr].distance;
                      y=500;
-                      
-                     players[index - 1].x = mouseX;
-                     players[index - 1].y = y;
+
+                    
                      
-                     console.log(x)
-                       
-                     if(index === player.index){
+                     players[index -1].x =mouseX;
+                     players[index - 1].y = y;
+                      
+  
+                    
+                        if(index === player.index){
                          
                          fill("black");
                          textSize(25);
                          text(allPlayers[plr].name ,x-25,y+25);
-
-                         
-                     }
-                    
-                     
                  
                  }
                 
                 
                  
 
-                if (keyIsDown(RIGHT_ARROW) && player.index !== null) {
-                    player.distance -= 10
-                    player.update();
-                }
-                if (keyIsDown(LEFT_ARROW) && player.index !== null) {
-                    player.distance += 10
-                    player.update();
-                }
+                 
             
                  if (frameCount % 20 === 0) {
                      fruits = createSprite(random(100, 1000), 0, 100, 100);
@@ -103,27 +92,21 @@ class Game{
                  }
                  
                   if (player.index !== null) {
-                     //fill code here, to destroy the objects.
-                     if (player.index !== null) { 
-                         for (var i = 0; i < fruitGroup.length; i++){ 
-                             if (fruitGroup.get(i).isTouching(players)){
-                             fruitGroup.get(i).destroy(); 
-                          player.score =player.score+1; 
-                          player.update();
-                         } 
-                         }
-
+                      for(var i = 0; i< fruitGroup.length;i++){
+                          if(fruitGroup.get(i).isTouching(players)){
+                            fruitGroup.get(i).destroy();
+                            player.score =player.score+1;
+                            player.update();
+                          }
+                       
+                      }
+                            
+                        
                   }
-                
-
-         
-         
-        
-         
-
-    
+               
+    }
 
     end(){
        console.log("Game Ended");
     }
-                  }
+}
