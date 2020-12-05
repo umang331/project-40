@@ -6,7 +6,7 @@ var allPlayers;
 
 var player, form,game;
 var player1,player2;
-var players;
+var players, game;
 var fruits;
 var fruitGroup;
 var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img;
